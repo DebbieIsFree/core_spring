@@ -11,8 +11,6 @@
   <li>Java: 11</li>
 </ul>
 <br>
-* 참고) 프로젝트 환경설정을 편리하게 하려고 스프링 부트를 사용하는 것이다. 이번 프로젝트에서는 스프링 없이
-순수하게 자바로만 개발을 진행한다. (이후 다른 프로젝트에서 스프링을 사용해 다시 개발)
 
 ### Environment ###
 <img src="https://github.com/DebbieIsFree/core/assets/83392219/f5d87422-293f-4147-ba8d-f1357c5cfd11" width="60" height="40"/>
@@ -24,10 +22,10 @@
 
 
 ### Project Scheme ###
-<img width="654" alt="스크린샷 2023-06-28 오후 8 09 46" src="https://github.com/DebbieIsFree/core/assets/83392219/eff204e0-f622-402b-9ed4-9b4d777f80f5"><br><br>
+<img width="610" alt="스크린샷 2023-06-28 오후 8 09 46" src="https://github.com/DebbieIsFree/core/assets/83392219/eff204e0-f622-402b-9ed4-9b4d777f80f5"><br><br>
 
-<img width="650" alt="스크린샷 2023-06-29 오전 10 48 14" src="https://github.com/DebbieIsFree/core/assets/83392219/32317c51-d1bd-48b5-bb85-f9d79c23eae2">
-<img width="650" alt="스크린샷 2023-06-29 오전 10 46 32" src="https://github.com/DebbieIsFree/core/assets/83392219/f20242c7-96be-45d6-babe-1136e294cbee">
+<img width="610" alt="스크린샷 2023-06-29 오전 10 48 14" src="https://github.com/DebbieIsFree/core/assets/83392219/32317c51-d1bd-48b5-bb85-f9d79c23eae2">
+<img width="610" alt="스크린샷 2023-06-29 오전 10 46 32" src="https://github.com/DebbieIsFree/core/assets/83392219/f20242c7-96be-45d6-babe-1136e294cbee">
 <br>
 <ol>
     <li>주문 생성: 클라이언트는 주문 서비스에 주문 생성을 요청한다.</li>
