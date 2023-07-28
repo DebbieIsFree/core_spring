@@ -13,19 +13,21 @@
 <br>
 
 ### Environment ###
-<img src="https://github.com/DebbieIsFree/core/assets/83392219/f5d87422-293f-4147-ba8d-f1357c5cfd11" width="60" height="40"/>
+<img src="https://github.com/DebbieIsFree/core/assets/83392219/1c39fe69-4307-4909-b4ba-24043572e270" width="60" height="40"/>
 
 ### Development ###
 <img src="https://github.com/DebbieIsFree/DebbieIsFree/assets/83392219/4fc55c7f-1deb-4c52-99c1-3b961f360a00" width="60" height="40"/>
 <img src="https://github.com/DebbieIsFree/DebbieIsFree/assets/83392219/a567dfe3-a522-4666-9222-488b8e8fe8b0" width="60" height="40"/> 
-<img src="https://github.com/DebbieIsFree/core/assets/83392219/a2d80e6b-a4c9-460a-9eac-a0fdd470e51b" width="60" height="40"/>
+<img src="https://github.com/DebbieIsFree/core/assets/83392219/2c887809-ae22-4eb6-9f39-51e082932876" width="60" height="40"/>
 
 
 ### Project Scheme ###
-<img width="610" alt="스크린샷 2023-06-28 오후 8 09 46" src="https://github.com/DebbieIsFree/core/assets/83392219/eff204e0-f622-402b-9ed4-9b4d777f80f5"><br><br>
+<img width="562" alt="스크린샷 2023-07-28 오후 10 01 11" src="https://github.com/DebbieIsFree/core/assets/83392219/6a9e53de-ec6e-4101-9829-2e8d7946a771"><br>
+<img width="562" alt="스크린샷 2023-07-28 오후 10 02 25" src="https://github.com/DebbieIsFree/core/assets/83392219/952a73f9-a3d1-4f41-9544-5407cf707d85"><br>
+<img width="562" alt="스크린샷 2023-07-28 오후 10 05 14" src="https://github.com/DebbieIsFree/core/assets/83392219/0bc17c35-1490-4d7f-86f5-6778c64453ba">
 
-<img width="610" alt="스크린샷 2023-06-29 오전 10 48 14" src="https://github.com/DebbieIsFree/core/assets/83392219/32317c51-d1bd-48b5-bb85-f9d79c23eae2">
-<img width="610" alt="스크린샷 2023-06-29 오전 10 46 32" src="https://github.com/DebbieIsFree/core/assets/83392219/f20242c7-96be-45d6-babe-1136e294cbee">
+
+
 <br>
 <ol>
     <li>주문 생성: 클라이언트는 주문 서비스에 주문 생성을 요청한다.</li>
