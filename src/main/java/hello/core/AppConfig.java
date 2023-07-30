@@ -18,18 +18,27 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+
+    // @Bean memberService -> 결과적으로는 new MemoryMemberRepository() 호출
+    // @Bean orderService -> new MemoryMemberRepository() 호출
+    // 위 두 예시에서만 MemoryMemberRepository()가 2번 호출될 것으로 예상
+    // But, 결과적으로는 1번 호출, 즉 동일 객체 인스턴스 (싱글톤 보장)
+
     @Bean
     public MemberService memberService(){    // 메서드명, 리턴타입을 보면 역할이 드러난다.
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 

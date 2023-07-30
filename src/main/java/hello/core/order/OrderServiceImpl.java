@@ -10,6 +10,8 @@ import hello.core.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService {
     // AppConfig를 통해, OrderServiceImpl은 FixDiscountPolicy에 의존하지 않는다.
 
+    // final : 한번 값을 할당하면 수정할 수 없다. 초기화는 한 번만 가능
+    // 선언만 하고 초기화는 각 객체 인스턴스에서 진행
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
     // 구체에 의존하지 않고, 인터페이스(추상)에만 의존 (DIP 잘 지킴)
@@ -25,6 +27,11 @@ public class OrderServiceImpl implements OrderService {
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+
+    // 테스트 용도
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
     }
 }
 
