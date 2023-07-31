@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 // 생성한 객체 인스턴스의 참조(레퍼런스)를 '생성자'를 통해서 주입(연결)한다.
 // 관심사의 분리 : 역할과 실행 분리
 
+// @Configuration : 스프링 빈 수동 등록
 @Configuration
 public class AppConfig {
 
