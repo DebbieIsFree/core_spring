@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -20,6 +23,14 @@ import org.springframework.context.annotation.FilterType;
 )
 public class AutoAppConfig {
     // 기존의 AppConfig와 다르게 @Bean으로 등록한 클래스가 하나도 없다.
+
+    // 수동 빈 등록 시, 자동 빈과 이름이 동일해 오버랑이딩이 발생한다.
+    // 이때, resources/application.properties에 설정 추가
+    @Bean(name = "memoryMemberRepository")
+    public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
+        return new MemoryMemberRepository();
+    }
 }
 
 
