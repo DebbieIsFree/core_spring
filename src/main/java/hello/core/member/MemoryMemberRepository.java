@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // 컴포넌트 스캔은 이름 그대로 @Component 애노테이션이 붙은 클래스를 스캔해서 스프링 빈으로 등록한다.
-@Component
+@Component      // 자동 스프링 빈 등록 : memoryMemberRepository
 public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>();
 
