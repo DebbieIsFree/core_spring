@@ -27,11 +27,11 @@ public class AutoAppConfig {
     // 수동 빈 등록 시, 자동 빈과 이름이 동일하면 오버라이딩이 발생한다.
     // 이때, resources/application.properties에 설정 추가하면 스프링 부트 에러 발생 시킴
     // 충돌 발생 시, 옵션 처리 (3가지)
-    @Bean(name = "memoryMemberRepository")
-    public MemberRepository memberRepository() {
-        System.out.println("call AppConfig.memberRepository");
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    public MemberRepository memberRepository() {
+//        System.out.println("call AppConfig.memberRepository");
+//        return new MemoryMemberRepository();
+//    }
 }
 
 

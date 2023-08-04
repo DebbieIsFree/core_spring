@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     // AppConfig를 통해, OrderServiceImpl은 FixDiscountPolicy에 의존하지 않는다.
     // 구체에 의존하지 않고, 인터페이스(추상)에만 의존 (DIP 잘 지킴)
@@ -25,11 +25,11 @@ public class OrderServiceImpl implements OrderService {
 
 
     // @RequiredArgsConstructor 사용으로 제거되는 코드 (생성자 자동 생성)
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = rateDiscountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
