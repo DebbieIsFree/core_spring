@@ -4,8 +4,9 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 // 빈 생명주기 콜백 방식
-// 1) InitializingBean
-public class NetworkClient implements InitializingBean, DisposableBean {
+// 1) InitializingBean : implements InitializingBean, DisposableBean
+// 2) 초기화, 소멸 메서드 지정
+public class NetworkClient {
 
     private String url;
 
@@ -33,17 +34,32 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("close : " + url);
     }
 
+
+    // 1) InitializingBean, DisposableBean
     // 의존관계 주입이 끝난 뒤 호출된다.
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("NetworkClient.afterPropertiesSet");
+//    @Override
+//    public void afterPropertiesSet() throws Exception {
+//        System.out.println("NetworkClient.afterPropertiesSet");
+//        connect();
+//        call("초기화 연결 메세지");
+//    }
+//
+//    @Override
+//    public void destroy() throws Exception {
+//        System.out.println("NetworkClient.destroy");
+//        disconnect();
+//    }
+
+
+    // 2) 초기화, 소멸 메서드 지정
+    public void init(){
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메세지");
     }
 
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("NetworkClient.destroy");
+    public void close(){
+        System.out.println("NetworkClient.close");
         disconnect();
     }
 }
