@@ -27,7 +27,9 @@ public class BeanLifeCycleTest {
 
         // 1) @Bean : InitializingBean, DisposableBean
         // 2) 초기화, 소멸 메서드 지정
-        @Bean(initMethod = "init", destroyMethod = "close")
+        // @Bean(initMethod = "init", destroyMethod = "close")
+        // 3) PostConstruct, PreDestroy
+        @Bean
         public NetworkClient networkClient(){
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
