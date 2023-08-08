@@ -4,17 +4,19 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-// 싱글톤 빈에서 프로토타입 빈 사용 시 발생하는 문제 예시
-public class SingletonWithPrototypeTest1 {
+
+// ObjectFactory, ObjectProvider
+public class SingletonWithPrototypeTest2 {
 
     @Test
-    void singletonClientUsePrototype(){
+    void providerTest(){
         // 둘 다 자동 빈 등록
         AnnotationConfigApplicationContext ac =
                 new AnnotationConfigApplicationContext(ClientBean.class, PrototypeBean.class);
@@ -26,36 +28,22 @@ public class SingletonWithPrototypeTest1 {
         Assertions.assertThat(count1).isEqualTo(1);
 
         int count2 = clientBean2.logic();
-        Assertions.assertThat(count2).isEqualTo(2);
-    }
-
-    @Test
-    void prototypeFind(){
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
-
-        PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
-        prototypeBean1.addCount();
-        Assertions.assertThat(prototypeBean1.getCount()).isEqualTo(1);
-
-        PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
-        prototypeBean2.addCount();
-        Assertions.assertThat(prototypeBean2.getCount()).isEqualTo(1);
+        Assertions.assertThat(count2).isEqualTo(1);
     }
 
     @Component
     @Scope("singleton")
     static class ClientBean {
-        private final PrototypeBean prototypeBean;
-
-        // ClientBean을 생성할 때, 처음으로 PrototypeBean이 의존관계 주입되면서
-        // 이때 프로토타입 빈이 생성 및 할당된다. (이후로는 계속 같은 빈을 사용하게 된다.)
-        // 동일 ClientBean에서 요청이 발생할 때마다 프로토타입 빈이 생성되는 것이 아니다.
         @Autowired
-        public ClientBean(PrototypeBean prototypeBean) {
-            this.prototypeBean = prototypeBean;
-        }
+        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+
+        // ObjectFactory 해도 가능
+//        private ObjectFactory<PrototypeBean> prototypeBeanProvider;
 
         public int logic(){
+            // 항상 새로운 프로토타입 빈이 생성된다.
+            // getObject()를 하는 시점에 스프링 컨테이너에서 스프링 빈을 찾아서 반환함
+            PrototypeBean prototypeBean =  prototypeBeanProvider.getObject();
             prototypeBean.addCount();
             int count = prototypeBean.getCount();
             return count;
