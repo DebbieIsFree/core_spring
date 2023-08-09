@@ -5,10 +5,10 @@
 ### Requirements ### 
 <ul>
   <li>Project: Gradle-Groovy</li>
-  <li>Spring Boot : 2.3.x</li>
+  <li>Spring Boot : 3.x</li>
   <li>Language: Java</li>
   <li>Package: Jar</li>
-  <li>Java: 11</li>
+  <li>Java: 17</li>
 </ul>
 <br>
 
