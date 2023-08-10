@@ -15,22 +15,34 @@ public class LogDemoController {    // MyLogger가 잘 작동하는지 확인하
     // 에러 해결
     // 방법 1) 스코프와 Provider
     // MyLogger를 주입받는 것이 아니라, MyLogger를 찾는 Dependency Lookup
-    private final ObjectProvider<MyLogger> myLoggerProvider;
-    private final LogDemoService logProviderDemoService;
+    // 1) 스코프와 Provider
+//    private final ObjectProvider<MyLogger> myLoggerProvider;
+//    private final LogDemoService logProviderDemoService;
+
+    // 2) 스코프와 프록시
+    private final MyLogger myLogger;
+    private final LogDemoService logDemoService;
+
 
     // requestURL 값 http://localhost:8080/log-demo
-    @RequestMapping("log-provider-demo")      // log-demo라는 요청이 왔을 때
+    @RequestMapping("log-demo")      // log-demo라는 요청이 왔을 때
     @ResponseBody
     public String logDemo(HttpServletRequest request){   // 자바 표준 서블릿, 요청 정보 받기
+        // 1) 스코프와 Provider
         // Provider에서 꺼낸 뒤, 주입 (이 시점에 생성됨 -> MyLogger의 init()메서드 호출)
-        MyLogger myLogger = myLoggerProvider.getObject();
+        // MyLogger myLogger = myLoggerProvider.getObject();
+
+        System.out.println("myLogger = " + myLogger.getClass());
 
         // 고객이 어떤 URL로 요청했는지 알 수 있다.
         String requestURL = request.getRequestURL().toString();
         myLogger.setRequestURL(requestURL);
 
         myLogger.log("controller test");
-        logProviderDemoService.logic("testID");
+        // 1) 스코프와 Provider
+        // logProviderDemoService.logic("testID");
+        // 2) 스코프와 프록시
+        logDemoService.logic("testID");
 
         return "OK";
     }
